@@ -1,5 +1,7 @@
 .product-detail{
+  position: fixed;
+  top:50px;
   width: 360px;
-  height: calc(100vh - 44px);
+  height: 100vh
   
 }
