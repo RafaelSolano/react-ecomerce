@@ -1,9 +1,10 @@
+
 import Layout from '../../components/layout'
 
 const MyOrders = () => {
   return (
     <Layout>
-    <div>MyOrders</div>
+      <div>MyOrders</div>
     </Layout>
   )
 }
