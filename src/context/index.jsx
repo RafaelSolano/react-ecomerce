@@ -1,15 +1,21 @@
-import { createContext }  from 'react';
+import { createContext, useState }  from 'react';
 
-const ShopingCartContex = createContext();
+export const ShoppingCartContex = createContext([]);
+
 
 
 // eslint-disable-next-line react/prop-types
-const ShopingCartProvider = ({children}) => {
+export const ShoppingCartProvider = ({ children }) => {
+  const [count, setCount] = useState(0)
+  
   return (
-    <ShopingCartContex.Provider>
+    <ShoppingCartContex.Provider
+      value={{
+        count,
+        setCount,
+      }}
+    >
       {children}
-    </ShopingCartContex.Provider>
+    </ShoppingCartContex.Provider>
   )
 }
-
-export default ShopingCartProvider

@@ -1,7 +1,13 @@
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { ShoppingCartContex } from '../../context';
 
+// eslint-disable-next-line react/prop-types
 const NavBar = () => {
   const activeStyle = 'underline underline-offset-4';
+
+  const { count }  = useContext(ShoppingCartContex)
+  
 
   return (
     <nav className='  flex flex-row justify-between py-2 px-4 font-light text-sm   '>
@@ -88,7 +94,7 @@ const NavBar = () => {
           <NavLink
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
             to={'/my-order'}>
-            🛒0
+            🛒{count}
           </NavLink>
         </li>
       </ul>
