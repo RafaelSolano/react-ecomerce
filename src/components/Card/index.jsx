@@ -12,7 +12,7 @@ const Card = ({ data: { title, price, category, images } }) => {
         <img className='w-full h-full object-cover rounded-lg ' src={ images[0]} alt={title} />
         <div className='absolute top-1 right-1   grid place-content-center  bg-white  w-6 h-6 rounded-full my-1 '
           onClick={() => setCount(count + 1)}>
-          <AiOutlinePlus/>
+          <AiOutlinePlus className='w-5 h-5'/>
         </div>
       </figure>
       <p className='flex justify-between'>
