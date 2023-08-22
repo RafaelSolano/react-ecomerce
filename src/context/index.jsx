@@ -12,7 +12,9 @@ export const ShoppingCartProvider = ({ children }) => {
   const closeProductDetail = () => setIsProductDetailopen(false)
   
   //product detail  Show
-const [productToShow, setProductToShow] = useState({})
+  const [productToShow, setProductToShow] = useState({})
+  //Shoping cart
+  const [cartProducts, setCartProducts] = useState([])
   
   return (
     <ShoppingCartContex.Provider
@@ -24,6 +26,8 @@ const [productToShow, setProductToShow] = useState({})
         closeProductDetail,
         productToShow,
         setProductToShow,
+        cartProducts,
+        setCartProducts,
         
       }}
     >
