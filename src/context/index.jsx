@@ -8,10 +8,11 @@ export const ShoppingCartContex = createContext([]);
 export const ShoppingCartProvider = ({ children }) => {
   const [count, setCount] = useState(0)
   const [isProductDetailopen, setIsProductDetailopen] = useState(false)
-
   const openProductDetail=() => setIsProductDetailopen(true)
-  const closeProductDetail=() => setIsProductDetailopen(false)
-
+  const closeProductDetail = () => setIsProductDetailopen(false)
+  
+  //product detail  Show
+const [productToShow, setProductToShow] = useState({})
   
   return (
     <ShoppingCartContex.Provider
@@ -21,6 +22,8 @@ export const ShoppingCartProvider = ({ children }) => {
         isProductDetailopen,
         openProductDetail,
         closeProductDetail,
+        productToShow,
+        setProductToShow,
         
       }}
     >
