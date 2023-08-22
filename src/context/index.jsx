@@ -1,21 +1,25 @@
-import { createContext, useState }  from 'react';
+import { createContext, useState } from 'react';
 
 export const ShoppingCartContex = createContext([]);
 
-
-
 // eslint-disable-next-line react/prop-types
 export const ShoppingCartProvider = ({ children }) => {
-  const [count, setCount] = useState(0)
-  const [isProductDetailopen, setIsProductDetailopen] = useState(false)
-  const openProductDetail=() => setIsProductDetailopen(true)
-  const closeProductDetail = () => setIsProductDetailopen(false)
-  
+  const [count, setCount] = useState(0);
+  //Product Detail  - open/Close
+  const [isProductDetailopen, setIsProductDetailopen] = useState(false);
+  const openProductDetail = () => setIsProductDetailopen(true);
+  const closeProductDetail = () => setIsProductDetailopen(false);
+
+  //cart Product- open / Close
+  const [isCheckoutSideMenuopen, setCheckoutSideMenuopen] = useState(false);
+  const openCheckoutSideMenu = () => setCheckoutSideMenuopen(true);
+  const closeCheckoutSideMenu = () => setCheckoutSideMenuopen(false);
+
   //product detail  Show
-  const [productToShow, setProductToShow] = useState({})
+  const [productToShow, setProductToShow] = useState({});
   //Shoping cart
-  const [cartProducts, setCartProducts] = useState([])
-  
+  const [cartProducts, setCartProducts] = useState([]);
+
   return (
     <ShoppingCartContex.Provider
       value={{
@@ -28,10 +32,14 @@ export const ShoppingCartProvider = ({ children }) => {
         setProductToShow,
         cartProducts,
         setCartProducts,
-        
-      }}
-    >
+        openCheckoutSideMenu,
+        closeCheckoutSideMenu,
+        setCheckoutSideMenuopen,
+        isCheckoutSideMenuopen
+
+
+      }}>
       {children}
     </ShoppingCartContex.Provider>
-  )
-}
+  );
+};
