@@ -2,7 +2,7 @@ import { HiXMark } from 'react-icons/hi2';
 
 const OrderCard = (props) => {
 
-  const {  title, image, price} = props;
+  const { id, title, image, price, handleDelete} = props;
   return (
     <div className='flex justify-between items-center my-4 '>
       <figure className='w-20 h-20 ' >
@@ -16,7 +16,7 @@ const OrderCard = (props) => {
         <p className='text-lg font-medium'>${price}</p>
         <p>
           <HiXMark
-            onClick={()=>console.log('borrar item')}
+            onClick={()=>handleDelete(id)}
             className='h-6 w-6 text-black cursor-pointer' />
         </p>
       </div>
