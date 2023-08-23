@@ -1,6 +1,7 @@
 import { HiXMark } from 'react-icons/hi2';
 
 const OrderCard = (props) => {
+  
 
   const { id, title, image, price, handleDelete} = props;
   return (
@@ -14,11 +15,11 @@ const OrderCard = (props) => {
       
       <div className='flex items-center gap-2'>
         <p className='text-lg font-medium'>${price}</p>
-        <p>
-          <HiXMark
+        { handleDelete &&  <p>
+        <HiXMark
             onClick={()=>handleDelete(id)}
             className='h-6 w-6 text-black cursor-pointer' />
-        </p>
+        </p>}
       </div>
 
     </div>

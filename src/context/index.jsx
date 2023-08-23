@@ -20,6 +20,10 @@ export const ShoppingCartProvider = ({ children }) => {
   //Shoping cart
   const [cartProducts, setCartProducts] = useState([]);
 
+  //Shopping cart  - Order
+
+  const [order, setOrder] = useState([]);
+
   return (
     <ShoppingCartContex.Provider
       value={{
@@ -35,7 +39,9 @@ export const ShoppingCartProvider = ({ children }) => {
         openCheckoutSideMenu,
         closeCheckoutSideMenu,
         setCheckoutSideMenuopen,
-        isCheckoutSideMenuopen
+        isCheckoutSideMenuopen,
+        order,
+        setOrder
 
 
       }}>

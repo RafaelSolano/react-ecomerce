@@ -6,16 +6,29 @@ import { ShoppingCartContex } from '../../context';
 import { useContext } from 'react';
 import OrderCard from '../OrderCard';
 import { totalPrice } from '../../utils';
+import {  NavLink } from 'react-router-dom';
 
 const CheckoutSideMenu = () => {
   
-  const { cartProducts, setCartProducts, isCheckoutSideMenuopen, closeCheckoutSideMenu } =
+  const { cartProducts, setCartProducts, isCheckoutSideMenuopen, closeCheckoutSideMenu,setOrder,order } =
     useContext(ShoppingCartContex);
   
   const handleDelete = (id) => {
     const filterproducts = cartProducts.filter(product => product.id != id)
     setCartProducts(filterproducts)
     
+  }
+
+  const handleCheckout = () => {
+    const orderToAdd = {
+      date: new Date,
+      products: cartProducts,
+      totalProducts: cartProducts.length,
+      totalPrice: totalPrice(cartProducts)
+    }
+    setOrder([...order, orderToAdd])
+    setCartProducts([])
+    closeCheckoutSideMenu()
   }
   return (
     <aside
@@ -46,7 +59,13 @@ const CheckoutSideMenu = () => {
         <p className=' flex justify-between pr-8'>
           <span className='font-light text-2xl '>Total: </span>
           <span className='font-bold text-2xl'>${totalPrice(cartProducts).toFixed(2)}</span></p>
-        <button className=' w-80 text-xl font-semibold rounded-lg bg-black text-white p-2 hover:bg-gray-900 '>Buy</button>
+        <NavLink to='/my-orders/last'>
+        <button
+          onClick={() => { handleCheckout() }}
+          className=' w-80 text-xl font-semibold rounded-lg bg-black text-white p-2 hover:bg-gray-900 '>
+          Checkout
+        </button>
+      </NavLink>
       </footer>
     </aside>
   );
