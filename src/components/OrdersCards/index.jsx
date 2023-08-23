@@ -5,7 +5,7 @@ const OrdersCard = (props) => {
 
   return (
     <div className='flex justify-between items-center mb-3 border border-black w-96 h-14'>
-      <Link to={`/my-ordersc/${id}`} >
+      <Link to={`/my-orders/${id}`} >
         <p className='flex flex-col'>
           <span>{date}</span>
           <span>Total Products: { totalProducts }</span>
