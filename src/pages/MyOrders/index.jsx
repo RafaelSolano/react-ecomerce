@@ -7,6 +7,7 @@ import { ShoppingCartContex } from '../../context'
 const MyOrders = () => {
   const { order } = useContext(ShoppingCartContex)
   console.log(order);
+ 
   return (
     <Layout>
       <div className='flex  items-center  w - 8'>

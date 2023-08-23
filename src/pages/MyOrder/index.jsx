@@ -4,11 +4,17 @@ import { useContext } from 'react'
 import OrderCard from '../../components/OrderCard'
 import Layout from '../../components/layout'
 import { ShoppingCartContex } from '../../context'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+
 
 const MyOrder = () => {
   const { order } = useContext(ShoppingCartContex)
   console.log(order.products);
+
+  const params = useParams();
+  const pathName = window.location.pathname
+
+
   return (
     <Layout>
       <div className='flex  items-center  w-32 justify-between'>
@@ -20,7 +26,7 @@ const MyOrder = () => {
       </div>
       
       <div className=' mt-6 mb-24'>
-        {order?.slice(-1)[0].products.map(product => (
+        {order?.slice((pathName ==='/my-orders/last')?-1:params.id)[0].products.map(product => (
           <OrderCard
             key={product.id}
             id={product.id}
