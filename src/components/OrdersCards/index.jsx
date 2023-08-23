@@ -1,21 +1,31 @@
+import { HiCalendarDays,HiOutlineShoppingBag, HiChevronRight } from "react-icons/hi2";
 import { Link } from 'react-router-dom';
 
 const OrdersCard = (props) => {
   const { id, totalPrice, totalProducts, date } = props;
 
   return (
-    <div className='flex justify-between items-center mb-3 border border-black w-96 h-14'>
-      <Link to={`/my-orders/${id}`} >
+    <Link to={`/my-orders/${id}`}>
+      <div className=' hover:text-gray-600 flex justify-between items-center rounded-lg p-4 mb-3 border border-black w-80 '>
         <p className='flex flex-col'>
-          <span>{date}</span>
-          <span>Total Products: { totalProducts }</span>
-          <span>Total Price: { totalPrice }</span>
-        </p>
-    
-      </Link>
-      
-    </div>
-  )
-}
+          
+          <p className='flex items-center gap-0'>
+            <HiCalendarDays className='w-6 h-6'/>
+            <span>{date}</span>
+          </p>
+          <p className='flex items-center gap-0'>
+          <HiOutlineShoppingBag className='w-6 h-6'/>
 
-export default OrdersCard
+          <span>{totalProducts} articles</span>
+          </p>
+        </p>
+        <p className='flex gap-1 items-center'>
+          <span className='text-xl font-bold'>${totalPrice}</span>
+          <HiChevronRight className='w-8 h-8' />
+        </p>
+      </div>
+    </Link>
+  );
+};
+
+export default OrdersCard;

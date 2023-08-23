@@ -17,6 +17,7 @@ const MyOrders = () => {
         order.map((order, index) => (
           <OrdersCard
             key={order.products.id}
+            date={'12/034/44'}
             id={index}
             totalPrice={order.totalPrice }
             totalProducts={order.totalProducts}
