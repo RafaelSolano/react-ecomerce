@@ -27,8 +27,26 @@ export const ShoppingCartProvider = ({ children }) => {
   //get ptoducts
   const [searchBar, setSearchBar] = useState('')
 
-  
+  //filter items
   const [items, setItems] = useState(null)
+
+  const [filteredItems, setfilteredItems] = useState([])
+
+  const filteredItemsByTitle = (items, searchBar) => {
+    return (items?.filter((item) =>
+    item.title.toLocaleLowerCase().includes(searchBar.toLocaleLowerCase())
+  ))
+  };
+  
+  useEffect(() => {
+  if (searchBar)setfilteredItems(filteredItemsByTitle(items, searchBar))
+  }, [items, searchBar])
+  
+
+
+  //
+
+  
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -57,7 +75,10 @@ export const ShoppingCartProvider = ({ children }) => {
         items,
         setItems,
         searchBar,
-        setSearchBar
+        setSearchBar,
+        filteredItems,
+        setfilteredItems,
+
 
 
       }}>
