@@ -3,6 +3,7 @@ import { HiXMark } from 'react-icons/hi2';
 const OrderCard = (props) => {
   
 
+  // eslint-disable-next-line react/prop-types
   const { id, title, image, price, handleDelete} = props;
   return (
     <div className='flex justify-between items-center my-4 '>

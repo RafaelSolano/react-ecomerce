@@ -4,7 +4,7 @@ import { ShoppingCartContex } from '../../context';
 
 const SearchInput = () => {
 
-  const { setSearchBar } = useContext(ShoppingCartContex)
+  const { setSearchBar, searchBar } = useContext(ShoppingCartContex)
   
 
   
@@ -20,6 +20,7 @@ const SearchInput = () => {
           <HiMagnifyingGlass className='text-gray-400'/>
         </div>
         <input
+          value={searchBar}
           onChange={({target})=> setSearchBar(target.value)}
           type='search'
           id='default-search'

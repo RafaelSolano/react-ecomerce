@@ -7,7 +7,12 @@ import { ShoppingCartContex } from '../../context';
 const NavBar = () => {
   const activeStyle = 'underline underline-offset-4';
 
-  const { count }  = useContext(ShoppingCartContex)
+  const { count, searchBar, setSearchBar } = useContext(ShoppingCartContex)
+  const handledClickMenu = () => {
+    console.log('searchBar:', searchBar);
+    setSearchBar('')
+   
+ }
   
 
   return (
@@ -15,26 +20,44 @@ const NavBar = () => {
       <ul className='flex items-center flex-row gap-3'>
         <li className='font-semibold text-lg'>
           <NavLink
+            onClick={()=>handledClickMenu()}
             to={'/'}>
             Shopi
           </NavLink>
         </li>
         <li>
           <NavLink
+            onClick={()=>handledClickMenu()}
+            
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
             to={'/'}>
             All
           </NavLink>
         </li>
         <li>
+        
           <NavLink
+            onClick={()=>handledClickMenu()}
+            
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
-            to={'/Clothes'}>
-            Clothes
+            to={'/mens'}>
+            Mens
+          </NavLink>
+         
+        </li>
+        <li>
+          <NavLink
+            onClick={()=>handledClickMenu()}
+            
+            className={({ isActive }) => (isActive ? activeStyle : undefined)}
+            to={'/womens'}>
+            Womens
           </NavLink>
         </li>
         <li>
           <NavLink
+            onClick={()=>handledClickMenu()}
+            
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
             to={'/electronics'}>
             Electronics
@@ -42,25 +65,14 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink
+            onClick={()=>handledClickMenu()}
+            
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
-            to={'/furnitures'}>
-            Furnitures
+            to={'/jewelery'}>
+            Jewelery
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? activeStyle : undefined)}
-            to={'/toys'}>
-            Toys
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? activeStyle : undefined)}
-            to={'/others'}>
-            Others
-          </NavLink>
-        </li>
+        
       </ul>
 
       <ul className='flex flex-row gap-3'>
@@ -72,6 +84,8 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink
+            onClick={()=>handledClickMenu()}
+            
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
             to={'/my-orders'}>
             My Orders
@@ -79,6 +93,8 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink
+            onClick={()=>handledClickMenu()}
+            
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
             to={'/my-account'}>
             My Account
@@ -86,6 +102,8 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink
+            onClick={()=>handledClickMenu()}
+            
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
             to={'/sign-in'}>
             signin
@@ -93,6 +111,8 @@ const NavBar = () => {
         </li>
         <li >
           <NavLink
+            onClick={()=>handledClickMenu()}
+            
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
             to={'/my-order'}>
             <div className='flex justify-center items-center '>

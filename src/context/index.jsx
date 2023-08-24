@@ -32,15 +32,31 @@ export const ShoppingCartProvider = ({ children }) => {
 
   const [filteredItems, setfilteredItems] = useState([])
 
-  const filteredItemsByTitle = (items, searchBar) => {
+
+
+  const [category, setCategory] = useState(null)
+
+  
+
+
+  const filteredItemsByTitle = (items, searchBar,  ) => {
     return (items?.filter((item) =>
     item.title.toLocaleLowerCase().includes(searchBar.toLocaleLowerCase())
   ))
   };
+
+  //categorys
+  const filteredByCategory = (items, category) => {
+    return items?.filter((item) => item.category.includes(category));
+  };
+
   
   useEffect(() => {
-  if (searchBar)setfilteredItems(filteredItemsByTitle(items, searchBar))
-  }, [items, searchBar])
+    if (searchBar) setfilteredItems(filteredItemsByTitle(items, searchBar))
+    if (category) setfilteredItems(filteredByCategory(items ,category))
+
+    
+  }, [items, searchBar, category])
   
 
 
@@ -78,6 +94,11 @@ export const ShoppingCartProvider = ({ children }) => {
         setSearchBar,
         filteredItems,
         setfilteredItems,
+        setCategory,
+        category,
+        filteredByCategory,
+        
+
 
 
 
