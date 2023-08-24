@@ -7,12 +7,12 @@ import { ShoppingCartContex } from '../../context';
 const NavBar = () => {
   const activeStyle = 'underline underline-offset-4';
 
-  const { count, searchBar, setSearchBar } = useContext(ShoppingCartContex)
+  const { count, searchBar, setSearchBar,openCheckoutSideMenu } = useContext(ShoppingCartContex)
   const handledClickMenu = () => {
     console.log('searchBar:', searchBar);
     setSearchBar('')
-   
- }
+
+}
   
 
   return (
@@ -111,13 +111,13 @@ const NavBar = () => {
         </li>
         <li >
           <NavLink
-            onClick={()=>handledClickMenu()}
+            onClick={()=> openCheckoutSideMenu()}
             
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
-            to={'/my-order'}>
+            >
             <div className='flex justify-center items-center '>
             <HiShoppingBag className='h-6 w-6' />
-            <div className='font-semibold'>{count}</div> 
+            <div className='font-semibold'>{count}</div>
             </div>
           </NavLink>
         </li>

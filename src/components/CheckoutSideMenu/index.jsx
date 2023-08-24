@@ -10,12 +10,14 @@ import {  NavLink } from 'react-router-dom';
 
 const CheckoutSideMenu = () => {
   
-  const { cartProducts, setCartProducts, isCheckoutSideMenuopen, closeCheckoutSideMenu,setOrder,order } =
+  const { cartProducts, setCartProducts, isCheckoutSideMenuopen, closeCheckoutSideMenu,setOrder,order,setCount,count } =
     useContext(ShoppingCartContex);
   
   const handleDelete = (id) => {
     const filterproducts = cartProducts.filter(product => product.id != id)
     setCartProducts(filterproducts)
+    setCount(count-1)
+
     
   }
 
@@ -29,6 +31,8 @@ const CheckoutSideMenu = () => {
     setOrder([...order, orderToAdd])
     setCartProducts([])
     closeCheckoutSideMenu()
+    setCount(0)
+
   }
   return (
     <aside
